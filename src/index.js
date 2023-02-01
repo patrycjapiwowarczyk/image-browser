@@ -58,16 +58,16 @@ function updatingGallery(imgData) {
     </div>
     <div class="gallery__info">
       <p class="gallery__item-info">
-        <b>Likes: </b> "${image.likes}"
+        <b>Likes </b> ${image.likes}
       </p>
       <p class="gallery__item-info">
-        <b>Views: </b>"${image.views}"
+        <b>Views </b>${image.views}
       </p>
       <p class="gallery__item-info">
-        <b>Comments: </b>"${image.comments}"
+        <b>Comments </b>${image.comments}
       </p>
       <p class="gallery__item-info">
-        <b>Downloads: </b>"${image.downloads}"
+        <b>Downloads </b>${image.downloads}
       </p>
     </div>
   </div>`;
