@@ -96,12 +96,6 @@ main {
   }
 }
 
-.gallery__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .gallery {
   width: fit-content;
   padding: 20px 0 40px 0;
