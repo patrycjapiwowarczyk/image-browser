@@ -158,5 +158,9 @@ main {
 .load-more {
 }
 
+.hidden{
+  visibility: hidden;
+}
+
 .footer {
 }
