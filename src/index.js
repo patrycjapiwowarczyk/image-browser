@@ -110,7 +110,6 @@ const footerObserver = new IntersectionObserver(async function (
   const imgData = await fetchingImages(lastSearched, page);
   updatingGallery(imgData);
   per_page = 40;
-  galleryButton.classList.remove('hidden');
 });
 
 const debouncing = debounce(async function () {
@@ -139,5 +138,4 @@ galleryButton.addEventListener('click', async function () {
   const imgData = await fetchingImages(lastSearched, page);
   updatingGallery(imgData);
   footerObserver.observe(footer);
-  galleryButton.classList.remove('hidden');
 });
