@@ -16,7 +16,6 @@ const lightbox = new SimpleLightbox('.gallery__imgbox a');
 let page = 1;
 let pagesNumber = 0;
 let lastSearched = null;
-let smoothScrolling = false;
 
 async function fetchingImages(searchedInput, page) {
   try {
@@ -50,7 +49,7 @@ async function fetchingImages(searchedInput, page) {
 }
 
 function scrolling() {
-  if (smoothScrolling) {
+  if (page > 1) {
     const { height: cardHeight } = document
       .querySelector('.gallery')
       .firstElementChild.getBoundingClientRect();
@@ -95,9 +94,6 @@ function updatingGallery(imgData) {
 
   if (page === 1 && pagesNumber !== 0) {
     galleryButton.classList.remove('hidden');
-    smoothScrolling = true;
-  } else {
-    galleryButton.classList.add('hidden');
   }
 }
 
@@ -113,7 +109,7 @@ const footerObserver = new IntersectionObserver(async function (
   page += 1;
   const imgData = await fetchingImages(lastSearched, page);
   updatingGallery(imgData);
-
+  per_page = 40;
   galleryButton.classList.remove('hidden');
 });
 
