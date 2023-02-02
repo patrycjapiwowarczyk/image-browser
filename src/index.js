@@ -16,6 +16,7 @@ const lightbox = new SimpleLightbox('.gallery__imgbox a');
 let page = 1;
 let pagesNumber;
 let lastSearched = null;
+let visibility = false;
 
 async function fetchingImages(searchedInput, page) {
   try {
@@ -97,3 +98,38 @@ searchForm.addEventListener('submit', e => {
   e.preventDefault();
   debouncing();
 });
+
+function loadMoreImages (totalHits) {
+  let totalPages = totalHits / per_page;
+
+  if (totalPages > page || page === totalPages) {
+page =+ 1;
+visibility = true;
+galleryButton.classList.remove("hidden");
+galleryButton.addEventListener("click", debouncing);
+  }
+
+  else if (page > totalPages && totalPages !== 0) {
+    galleryButton.classList.add("hidden");
+    Notify.failure("We're sorry, but you've reached the end of search results.")
+  }
+
+  else if (page > totalPages) {
+    visibility = false;
+    galleryButton.classList.add("hidden");
+  }
+}
+
+function smoothScrolling () {
+  if (visibility) {
+    const { height: cardHeight } = document
+  .querySelector(".gallery")
+  .firstElementChild.getBoundingClientRect();
+
+window.scrollBy({
+  top: cardHeight * 2,
+  behavior: "smooth",
+});
+  }
+}
+
