@@ -1,1 +1,1 @@
-# https://patrycjapiwowarczyk.github.io/goit-js-hw-11/
+# https://patrycjapiwowarczyk.github.io/image-browser/
